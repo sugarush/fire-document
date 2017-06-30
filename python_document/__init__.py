@@ -9,22 +9,47 @@ def typecheck(item):
 
 class Document(dict):
 
-    def __getattr__(self, name):
-        value = self[name]
+    def __getattr__(self, key):
+        value = super(Document, self).__getattr__(key)
+        return typecheck(value)
+
+    @classmethod
+    def fromkeys(cls, keys, default=None):
+        return super(Document, cls).fromkeys(keys, default)
+
+    def get(self, key, default=None):
+        value = super(Document, self).get(key, default)
         return typecheck(value)
 
     def items(self):
-        pass
+        items = super(Document, self).items()
+        return [ ( k, typecheck(v) ) for ( k, v ) in items ]
 
     def values(self):
-        pass
+        values = super(Document, self).values()
+        return [ typecheck(v) for v in values ]
 
     def iteritems(self):
         for key, value in super(Document, self).iteritems():
             yield (key, typecheck(value))
 
     def itervalues(self):
-        pass
+        for value in super(Document, self).itervalues():
+            yield typecheck(value)
+
+    def pop(self, key, default=None):
+        value = super(Document, self).pop(key, default)
+        return typecheck(value)
+
+    def popitem(self):
+        key, value = super(Document, self).popitem()
+        return (key, typecheck(value))
+
+    def viewitems(self):
+        raise NotImplementedError
+
+    def viewvalues(self):
+        raise NotImplementedError
 
 
 class Documents(list):
@@ -36,6 +61,12 @@ class Documents(list):
         value = super(Documents, self).__getitem__(index)
         return typecheck(value)
 
+    def __getslice__(self, i, j):
+        pass
+
     def __iter__(self):
         for value in super(Documents, self).__iter__():
             yield typecheck(value)
+
+    def __reversed__(self):
+        pass

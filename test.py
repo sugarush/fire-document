@@ -43,6 +43,14 @@ class TestDocument(TestCase):
         self.assertTrue(isinstance(self.doc['alpha'], str))
 
     @skip('not tested')
+    def test_fromkeys(self):
+        pass
+
+    @skip('not tested')
+    def test_get(self):
+        pass
+
+    @skip('not tested')
     def test_items(self):
         pass
 
@@ -57,6 +65,23 @@ class TestDocument(TestCase):
     @skip('not tested')
     def test_itervalues(self):
         pass
+
+    @skip('not tested')
+    def test_pop(self):
+        pass
+
+    @skip('not tested')
+    def test_popitem(self):
+        pass
+
+    @skip('not tested')
+    def test_viewitems(self):
+        pass
+
+    @skip('not tested')
+    def test_viewvalues(self):
+        pass
+
 
 class TestDocuments(TestCase):
 
@@ -76,7 +101,15 @@ class TestDocuments(TestCase):
         docs = Documents(self.test_data)
         self.assertDictEqual(docs[0], self.test_data[0])
 
+    @skip('not tested')
+    def test_getslice(self):
+        pass
+
     def test_iter(self):
         gen = iter(self.docs)
         self.assertTrue(isgenerator(gen))
         self.assertTrue(isinstance(next(gen), Document))
+
+    @skip('not tested')
+    def test_reversed(self):
+        pass

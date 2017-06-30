@@ -29,13 +29,13 @@ class Document(dict):
 
 class Documents(list):
 
-    def __init__(self, item):
-        super(Documents, self).__init__(item)
+    def __init__(self, iterable):
+        super(Documents, self).__init__(iterable)
 
     def __getitem__(self, index):
-        item = super(Documents, self).__getitem__(index)
-        return typecheck(item)
+        value = super(Documents, self).__getitem__(index)
+        return typecheck(value)
 
     def __iter__(self):
-        for item in super(Documents, self).__iter__():
-            yield typecheck(item)
+        for value in super(Documents, self).__iter__():
+            yield typecheck(value)

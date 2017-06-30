@@ -1,3 +1,4 @@
+
 def typecheck(item):
     if isinstance(item, dict):
         return Document(item)
@@ -9,8 +10,8 @@ def typecheck(item):
 class Document(dict):
 
     def __getattr__(self, name):
-        item = self[name]
-        return typecheck(item)
+        value = self[name]
+        return typecheck(value)
 
     def items(self):
         pass
@@ -19,8 +20,8 @@ class Document(dict):
         pass
 
     def iteritems(self):
-        for key, item in super(Document, self).iteritems():
-            yield (key, typecheck(item))
+        for key, value in super(Document, self).iteritems():
+            yield (key, typecheck(value))
 
     def itervalues(self):
         pass

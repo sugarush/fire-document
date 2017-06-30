@@ -42,13 +42,6 @@ class TestDocument(TestCase):
     def test_getattr(self):
         self.assertTrue(isinstance(self.doc['alpha'], str))
 
-    @skip('unnecessary')
-    def test_iter(self):
-        gen = iter(self.doc)
-        self.assertTrue(isgenerator(gen))
-        self.assertTrue(isinstance(next(gen), str))
-        print next(gen)
-
     @skip('not tested')
     def test_items(self):
         pass

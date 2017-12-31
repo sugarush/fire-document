@@ -13,7 +13,7 @@ script:
   - venv-python-test
 
 after_success:
-  - codecov --token "ca6c0628-fb76-46a2-a139-5b0ab0361411" > /dev/null
+  - codecov --token "027cd665-8516-42e8-8642-010114a37de4" > /dev/null
 
 notifications:
 

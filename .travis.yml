@@ -10,7 +10,7 @@ install:
   - source .venv-activate
 
 script:
-  - venv-tornado-test
+  - venv-python-test
 
 after_success:
   - codecov --token "ca6c0628-fb76-46a2-a139-5b0ab0361411" > /dev/null

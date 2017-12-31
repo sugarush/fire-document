@@ -111,5 +111,5 @@ class TestDocuments(TestCase):
         self.assertTrue(isinstance(next(gen), Document))
 
     @skip('not tested')
-    def test_reversed(self):
+    def test_pop(self):
         pass

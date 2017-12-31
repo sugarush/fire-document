@@ -62,11 +62,12 @@ class Documents(list):
         return typecheck(value)
 
     def __getslice__(self, i, j):
-        pass
+        return super(Documents, self).__getslice__(i, j)
 
     def __iter__(self):
         for value in super(Documents, self).__iter__():
             yield typecheck(value)
 
-    def __reversed__(self):
-        pass
+    def pop(self, index):
+        value = super(Documents, self).pop(index)
+        return typecheck(value)

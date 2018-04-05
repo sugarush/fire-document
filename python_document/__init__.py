@@ -45,13 +45,6 @@ class Document(dict):
         key, value = super(Document, self).popitem()
         return (key, typecheck(value))
 
-    def viewitems(self):
-        raise NotImplementedError
-
-    def viewvalues(self):
-        raise NotImplementedError
-
-
 class Documents(list):
 
     def __init__(self, iterable):

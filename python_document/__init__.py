@@ -9,8 +9,8 @@ def typecheck(item):
 
 class Document(dict):
 
-    def __getattr__(self, key):
-        value = super(Document, self).__getattr__(key)
+    def __getattribute__(self, key):
+        value = super(Document, self).__getattribute__(key)
         return typecheck(value)
 
     @classmethod

@@ -68,6 +68,10 @@ class Documents(list):
         for value in super(Documents, self).__iter__():
             yield typecheck(value)
 
-    def pop(self, index):
+    def pop(self, index=None):
+        if index is None:
+            index = len(self) - 1
+        if index < 0:
+            raise IndexError
         value = super(Documents, self).pop(index)
         return typecheck(value)

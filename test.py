@@ -42,37 +42,57 @@ class TestDocument(TestCase):
     def test_getattr(self):
         self.assertTrue(isinstance(self.doc['alpha'], str))
 
-    @skip('not tested')
     def test_fromkeys(self):
-        pass
+        doc = Document.fromkeys(['test', 'ing'], 'value')
+        self.assertDictEqual(doc, {'test': 'value', 'ing': 'value'})
+        self.assertTrue(isinstance(doc, Document))
 
-    @skip('not tested')
     def test_get(self):
-        pass
+        value = self.doc.get('alpha')
+        self.assertEqual(value, self.test_data['alpha'])
+        value = self.doc.get('nonexistent', 'test')
+        self.assertEqual(value, 'test')
+        value = self.doc.get('nonexistent')
+        self.assertIsNone(value)
 
-    @skip('not tested')
     def test_items(self):
-        pass
+        items = self.doc.items()
+        self.assertEqual(items, [
+            ('alpha', 'a'),
+            ('beta', 'b'),
+            ('gamma', 'g'),
+            ('delta', {'epsilon': 'e', 'zeta': 'z'})
+        ])
 
-    @skip('not tested')
     def test_values(self):
-        pass
+        values = self.doc.values()
+        self.assertEqual(values, [
+            'a',
+            'b',
+            'g',
+            {'epsilon': 'e', 'zeta': 'z'}
+        ])
 
-    @skip('not tested')
     def test_iteritems(self):
-        pass
+        iteritems = self.doc.iteritems()
+        self.assertTrue(isgenerator(iteritems))
 
-    @skip('not tested')
     def test_itervalues(self):
-        pass
+        itervalues = self.doc.itervalues()
+        self.assertTrue(isgenerator(itervalues))
 
-    @skip('not tested')
     def test_pop(self):
-        pass
+        value = self.doc.pop('alpha')
+        self.assertEqual(value, self.test_data['alpha'])
+        value = self.doc.pop('nonexistent', 'test')
+        self.assertEqual(value, 'test')
+        value = self.doc.pop('nonexistent')
+        self.assertIsNone(value)
 
-    @skip('not tested')
     def test_popitem(self):
-        pass
+        k, v = self.doc.popitem()
+        self.assertIsNotNone(k)
+        self.assertIsNotNone(v)
 
     @skip('not tested')
     def test_viewitems(self):
@@ -110,6 +130,12 @@ class TestDocuments(TestCase):
         self.assertTrue(isgenerator(gen))
         self.assertTrue(isinstance(next(gen), Document))
 
-    @skip('not tested')
+    #@skip('not tested')
     def test_pop(self):
-        pass
+        value = self.docs.pop()
+        self.assertEqual(value, self.test_data[len(self.test_data) - 1])
+        value = self.docs.pop(0)
+        self.assertEqual(value, self.test_data[0])
+        self.docs.pop()
+        with self.assertRaises(IndexError):
+            self.docs.pop()

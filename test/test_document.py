@@ -1,7 +1,7 @@
 from unittest import TestCase, skip
 from inspect import isgenerator
 
-from python_document import Document
+from sugar_document import Document
 
 
 class TestDocument(TestCase):

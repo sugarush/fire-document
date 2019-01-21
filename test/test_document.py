@@ -19,8 +19,11 @@ class TestDocument(TestCase):
     def setUp(self):
         self.doc = Document(self.test_data)
 
-    def test_getattr(self):
-        self.assertTrue(isinstance(self.doc['alpha'], str))
+    def test_getattribute(self):
+        self.assertTrue(self.doc.alpha, 'a')
+
+    def test_getattribute_nested(self):
+        self.assertTrue(self.doc.delta.zeta, 'z')
 
     def test_fromkeys(self):
         doc = Document.fromkeys(['test', 'ing'], 'value')

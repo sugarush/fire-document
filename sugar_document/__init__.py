@@ -10,7 +10,12 @@ def typecheck(item):
 class Document(dict):
 
     def __getattribute__(self, key):
-        value = super(Document, self).__getattribute__(key)
+        if key in self:
+            return typecheck(self[key])
+        return super(Document, self).__getattribute__(key)
+
+    def __getitem__(self, key):
+        value = super(Document, self).__getitem__(key)
         return typecheck(value)
 
     @classmethod

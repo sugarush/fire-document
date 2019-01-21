@@ -4,7 +4,7 @@ python:
   - 3.6
 
 install:
-  - pip install -r coverage codecov
+  - pip install coverage codecov
   - source .venv-activate
 
 script:

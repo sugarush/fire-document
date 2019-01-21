@@ -4,13 +4,12 @@ python:
   - 3.6
 
 install:
-  - git clone https://github.com/satan-extra/python.git
-  - source python/python.sh
-  - pip install -r .requirements
+  - pip install -r coverage codecov
   - source .venv-activate
 
 script:
-  - venv-python-test
+  - coverage run --source "${MODULE}" --module "unittest" discover --verbose "test"
+  - coverage report
 
 after_success:
   - codecov --token "027cd665-8516-42e8-8642-010114a37de4" > /dev/null

@@ -25,6 +25,9 @@ class TestDocument(TestCase):
     def test_getattribute_nested(self):
         self.assertEqual(self.doc.delta.zeta, 'z')
 
+    def test_getattribute_default(self):
+        self.assertIsNone(self.doc.iota)
+
     def test_setattr(self):
         self.doc.theta = 't'
         self.assertEqual(self.doc.theta, 't')

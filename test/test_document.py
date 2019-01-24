@@ -20,10 +20,15 @@ class TestDocument(TestCase):
         self.doc = Document(self.test_data)
 
     def test_getattribute(self):
-        self.assertTrue(self.doc.alpha, 'a')
+        self.assertEqual(self.doc.alpha, 'a')
 
     def test_getattribute_nested(self):
-        self.assertTrue(self.doc.delta.zeta, 'z')
+        self.assertEqual(self.doc.delta.zeta, 'z')
+
+    def test_setattr(self):
+        self.doc.theta = 't'
+        self.assertEqual(self.doc.theta, 't')
+        self.assertEqual(self.doc.get('theta'), 't')
 
     def test_fromkeys(self):
         doc = Document.fromkeys(['test', 'ing'], 'value')

@@ -1,4 +1,4 @@
-paul.severance__author__ = 'Paul Severance'
+__author__ = 'Paul Severance'
 
 from setuptools import setup
 

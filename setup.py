@@ -1,14 +1,14 @@
-__author__ = 'Lucifer Avada'
+paul.severance__author__ = 'Paul Severance'
 
 from setuptools import setup
 
 setup(
-    name='sugar-document',
+    name='fire-document',
     version='0.0.1',
-    author='Lucifer Avada',
-    author_email='lucifer.avada@gmail.com',
-    url='https://github.com/sugarush/sugar-document',
-    packages=['sugar_document'],
+    author='Paul Severance',
+    author_email='paul.severance@gmail.com',
+    url='https://github.com/sugarush/fire-document',
+    packages=['fire_document'],
     description='Map dictionary keys to object attributes.',
     install_requires=[ ]
 )

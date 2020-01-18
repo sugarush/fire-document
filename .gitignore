@@ -1,5 +1,5 @@
 .coverage
+.venv
 __pycache__
 doc/build
-venv
 htmlcov

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from fire_document import typecheck, Document, Documents
+from sugar_document import typecheck, Document, Documents
 
 
 class TestTypecheck(TestCase):

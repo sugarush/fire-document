@@ -1,5 +1,11 @@
-
 def typecheck(item):
+    '''
+    If `item` is a `dict`, return `Document(item)`. If `item` is a `list`,
+    return `Documents(item).` In all other cases, return `item` itself.
+
+    :param item: The item to typecheck.
+    :return: `Document(item)`, `Documents(item)` or `item`.
+    '''
     if isinstance(item, dict):
         return Document(item)
     elif isinstance(item, list):
@@ -8,6 +14,9 @@ def typecheck(item):
 
 
 class Document(dict):
+    '''
+    The Document class, a subclass of `dict`.
+    '''
 
     def __getattribute__(self, name):
         if name in self:
@@ -56,7 +65,11 @@ class Document(dict):
         key, value = super(Document, self).popitem()
         return (key, typecheck(value))
 
+
 class Documents(list):
+    '''
+    The Documents class, a subclass of `list`.
+    '''
 
     def __init__(self, iterable):
         super(Documents, self).__init__(iterable)

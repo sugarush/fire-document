@@ -4,3 +4,4 @@ __pycache__
 doc/build
 htmlcov
 *.pyc
+docs/_build
